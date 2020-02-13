@@ -1,0 +1,7 @@
+id,name,dept,sal
+1,sai,CS,22
+2,kiran,IT,15
+5,saiful,CS,10
+4,epam,IT,20
+6,sonu,CS,10
+3,hyd,IT,54
