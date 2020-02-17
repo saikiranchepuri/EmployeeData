@@ -1,4 +1,4 @@
-import org.epam.pkg.Employee
+import org.epam.pkg.{EmpCode, Employee}
 import org.scalatest.FunSuite
 import org.scalatest.exceptions.TestFailedException
 
@@ -44,6 +44,28 @@ class EmployeeTest extends FunSuite {
       assert(empSortedRecords.length == 1)
     }
   }
+
+  test("file code and description values in size"){
+    val file = Source.fromFile("src/main/resources/Downloads/empCodeMock1.txt").getLines
+    val header = file.take(1).next()
+    val data = file.filter(r=>r!=header)
+    val empCode = data.map(rec => rec.split(",")).map(rec=>(rec(0),rec(1)))
+    val result = empCode.toList.distinct
+    val l = List((1,"software engineer"),(2,"software test engineer"),(3,"sr. software engineer"))
+    assert(result.length == l.length)
+  }
+
+  test("sorted file code and description values"){
+    val file = Source.fromFile("src/main/resources/Downloads/empCodeMock1.txt").getLines
+    val header = file.take(1).next()
+    val data = file.filter(r=>r!=header)
+    val empCode = data.map(rec => rec.split(",")).map(rec=>(rec(0),rec(1)))
+    val result = empCode.toList.distinct
+    val l = List((1,"software engineer"),(2,"software test engineer"),(3,"sr. software engineer"),(3,"sr. software engineer"))
+    assert(result.length == l.distinct.length)
+  }
+
+
 
 
 

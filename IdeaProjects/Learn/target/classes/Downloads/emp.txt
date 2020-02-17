@@ -3,5 +3,5 @@ id,name,dept,sal
 2,kiran,IT,15
 5,saiful,CS,10
 4,epam,IT,20
-6,sonu,CS,10
+6,sonu,CS,70
 3,hyd,IT,54
